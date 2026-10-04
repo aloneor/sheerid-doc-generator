@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles if needed */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure templates look correct on white background even in dark mode app */
+.template-container {
+    color: black;
+    background-color: white;
+}
+
+/* 
+   Force transform: none on drag elements during export.
+   Using !important to override framer-motion's inline styles.
+*/
+.exporting .document-card {
+    transform: none !important;
+    /* Remove shadow to prevent "blurred/frosted glass" effect on edges */
+    box-shadow: none !important; 
+    /* Add a thin crisp border so white documents don't blend into the white background */
+    border: 1px solid #e4e4e7; 
+    background-color: #ffffff !important;
+}
+
+.exporting .document-card > div {
+    box-shadow: none !important;
+    background-color: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* Ensure the container background is pure white during export */
+.exporting {
+    background-color: #ffffff !important;
+    /* Ensure no gap transparency issues */
+    background-image: none !important; 
+    backdrop-filter: none !important;
+}
